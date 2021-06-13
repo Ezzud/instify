@@ -35,7 +35,7 @@ if (!credentials) {
     console.error(`Le fichier de configuration est vide ou inexistant!`)
     process.exit(0);
 }
-if (!credentials.spotifyClientID || !credentials.spotifyClientSecret || !credentials.instagramUsername || !credentials.instagramPassword) {
+if (!credentials.spotifyClientID || !credentials.spotifyClientSecret || !credentials.instagramEmail || !credentials.instagramPassword || !credentials.accessToken || !credentials.refreshToken) {
     console.error(`Une valeur de connexion est manquante dans le fichier "credentials.json"`);
     process.exit(0);
 }
@@ -141,7 +141,7 @@ async function run() {
             console.log(`Compte Spotify: ${spotify_acc || `Inconnu`}\nCompte Instagram: ${insta_acc || `Inconnu`}\nBio: ${bio}`)
             console.log("Bio updated!")
         } else {
-        	let title = "Rien du tout"
+        	let title = config.nolistening
         	if(title === oldtitle) {
                     let bio = await client.getProfile()
             bio = bio.biography
@@ -150,7 +150,7 @@ async function run() {
             return;
         	}
         	oldtitle = title
-        	let format = config.bio.replace("%track%", "Rien pour le moment")
+        	let format = config.bio.replace("%track%", config.nolistening)
         	let profile = await client.getProfile()
             await client.updateProfile({ username:profile.username, name:profile.first_name, gender:profile.gender, phoneNumber:profile.phone_number, email:profile.email, website:profile.external_url, biography:`${format}`})
             let bio = await client.getProfile()
