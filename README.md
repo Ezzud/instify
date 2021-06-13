@@ -86,7 +86,12 @@ curl -d grant_type=authorization_code -d client_id=YOUR CLIENT ID -d client_secr
 ```
 - Copy list of characters after "access_token" and paste in the `credentials.json` file, for the value **accessToken**
 - Copy list of characters after "refresh_token" and paste in the `credentials.json` file, for the value **refreshToken**
+
 </p>
+
+
+<br></br>
+
 
 
 You can support me on paypal: https://paypal.me/ezzudd
