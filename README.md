@@ -1,6 +1,12 @@
 # Instify
 ![Logo](https://ezzud.tk/portfolio/attachments/other/instify.png)
 
+[![Size](https://img.shields.io/github/last-commit/Ezzud/instify)]()\
+[![Github package.json version](https://img.shields.io/github/package-json/v/Ezzud/instify)]()\
+<br>
+
+If you like the code and want to support me:<br>
+[![follow](https://img.shields.io/github/followers/Ezzud?label=Follow%20me&style=social)]() [![follow](https://img.shields.io/github/stars/Ezzud/instify?style=social)]() [![follow](https://img.shields.io/github/watchers/Ezzud/instify?label=Follow%20repository&style=social)]()
 <h2>Description</h2>
 Displays your spotify current track on your instagram biography, editable track display and biography
 
