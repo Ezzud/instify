@@ -58,16 +58,16 @@ If all the credentials are valid, program should start and change your bio as th
 <h3>How to get AccessToken and RefreshToken</h3>
 <p>
 
-- Go on your spotify dashboard
+- *Go on your spotify dashboard*
 - Click on your application
-- Click on "edit settings"
+- Click on **edit settings**
 - On the "redirect URI" tab, add the website `https://ezzud.tk/portfolio/`
-- Go on the URL: `https://accounts.spotify.com/authorize?response_type=code&client_id=YOUR CLIENT ID&scope=user-read-private%20user-read-email%20user-read-playback-state%20user-modify-playback-state%20user-read-currently-playing&redirect_uri=https:%2F%2Fezzud.tk%2Fportfolio%2F&show_dialog=true`
+- Copy and go on this url with changing client ID by your application client id: `https://accounts.spotify.com/authorize?response_type=code&client_id=YOUR CLIENT ID&scope=user-read-private%20user-read-email%20user-read-playback-state%20user-modify-playback-state%20user-read-currently-playing&redirect_uri=https:%2F%2Fezzud.tk%2Fportfolio%2F&show_dialog=true`
 - Accept authorization
 - U got redirected on `ezzud.tk/portfolio/?code=random_code`
 - Copy all the caracters after "?code="
 - Press Windows + R, Write "cmd" and press Enter
-- Copy: 
+- Copy with changing values by your application values and your code: 
 ```bash
 
 curl -d grant_type=authorization_code -d client_id=YOUR CLIENT ID -d client_secret=YOUR CLIENT SECRET -d code=THE CODE YOU COPIED BEFORE -d redirect_uri=https%3A%2F%2Fezzud.tk%2Fportfolio%2F https://accounts.spotify.com/api/token
