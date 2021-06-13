@@ -32,7 +32,7 @@ Displays your spotify current track on your instagram biography, editable track 
 
 - Extract the source code on your computer
 - ⚠⚠ Open the `credentials.json` and see how to get all the credentiels below! ⚠⚠
-- Edit `config.json` file as you want, but DON'T REMOVE %title%, %author% and %track% !
+- Edit `config.json` file as you want, but DON'T REMOVE %title%, %author% and %track% ! (PS: \n = a line break)
 - Copy path to the extracted folder
 - Press Windows + R, write `cmd` and press **Enter**
 - on the console, write: `cd Path/to/the/code` and press enter
