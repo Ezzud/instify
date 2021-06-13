@@ -129,16 +129,19 @@ async function run() {
             }
             oldtitle = title;
             let artist = song.body.item.artists[0].name;
-            let format = config.track.replace("%title%", title).replace("%author%", artist);
+            let timefor = await formatDate(song.body.progress_ms);
+            let timeto = await formatDate(song.body.item.duration_ms);
+            let pourcent = (song.body.progress_ms * 100) / song.body.item.duration_ms
+            pourcent = await makePourcent(pourcent, timefor, timeto)
+            let format = config.track.replace("%title%", title).replace("%author%", artist).replace("%duration%", pourcent);
             format = config.bio.replace("%track%", format)
     		if(instaReady === false) return;
-            console.log(format)
             let profile = await client.getProfile()
             await client.updateProfile({ username:profile.username, name:profile.first_name, gender:profile.gender, phoneNumber:profile.phone_number, email:profile.email, website:profile.external_url, biography:`${format}`})
             let bio = await client.getProfile()
             bio = bio.biography
             console.clear()
-            console.log(`Compte Spotify: ${spotify_acc || `Inconnu`}\nCompte Instagram: ${insta_acc || `Inconnu`}\nBio: ${bio}`)
+            console.log(`Compte Spotify: ${spotify_acc || `Inconnu`}\nCompte Instagram: ${insta_acc || `Inconnu`}\nBio: ${bio}\nPourcent: ${pourcent}`)
             console.log("Bio updated!")
         } else {
         	let title = config.nolistening
@@ -177,5 +180,51 @@ function refresh() {
         	console.log('Could not refresh access token', err);
     	});
 	}, 60000)
+}
+
+
+function formatDate(t) {
+    let remainingTime = new Date(t)
+    let roundTowardsZero = remainingTime > 0 ? Math.floor : Math.ceil;
+    let minutes = roundTowardsZero(remainingTime / 60000) % 60,
+    seconds = roundTowardsZero(remainingTime / 1000) % 60;
+    let m;
+    let s;
+    if(minutes > 0) {
+       m = `${minutes}m` 
+    } else if(minutes === 0) {
+       m = ``
+    } else if(minutes === 1){
+        m = `${minutes}m`
+    } else {
+        m = ``
+    }
+    if(seconds > 0) {
+       s = `${seconds}s` 
+    } else if(seconds === 0) {
+       s = ``
+    } else if(seconds === 1) {
+        s = `${seconds}s`
+    } else {
+        s = ``
+    }
+    let msg = `${m || " "} ${s || " "}`
+    return msg;
+}
+
+function makePourcent(n, tf, tt) {
+    let pr = "0s [—————] 0s";
+    if(n <= 20) {
+        pr = `${tf} [🟠————] ${tt}`
+    } else if(n > 20 && n <= 40) {
+        pr = `${tf} [—🟠———] ${tt}`
+    } else if(n > 40 && n <= 60) {
+        pr = `${tf} [——🟠——] ${tt}`
+    } else if(n > 60 && n <= 80) {
+        pr = `${tf} [———🟠—] ${tt}`
+    } else if(n > 80 && n <= 100) {
+        pr = `${tf} [————🟠] ${tt}`
+    }
+    return pr;
 }
 run()

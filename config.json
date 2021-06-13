@@ -1,6 +1,6 @@
 {
 	"bio":"🎶 Ecoute: %track%\n💻 Actualise automatiquement ma bio en fonction de ce que j'écoute sur spotify",
-	"track":"%title% ➡ %author%",
+	"track":"%title% ➡ %author% - %duration%",
 	"nolistening":"Rien pour le moment"
 }
 
