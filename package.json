@@ -1,0 +1,19 @@
+{
+  "name": "Instify",
+  "version": "0.0.1",
+  "description": "Link instagram bio with spotify current track",
+  "main": "app.js",
+  "private": true,
+  "author": "ezzud",
+  "license": "MIT",
+  "engines": {
+    "node": ">=0.7.x"
+  },
+  "dependencies": {
+    "edit-json-file": "^1.6.0",
+    "fs": "0.0.1-security",
+    "instagram-web-api": "^2.2.2",
+    "spotify-web-api-node": "^5.0.2",
+    "tough-cookie-filestore2": "^1.0.0"
+  }
+}
