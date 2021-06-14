@@ -1,5 +1,5 @@
 # Instify
-![Logo](https://ezzud.tk/portfolio/attachments/other/instify.png)
+![Logo](https://repository-images.githubusercontent.com/376559510/f0030580-cc72-11eb-9e8c-9f2ee01a8aca)
 
 [![Size](https://img.shields.io/github/last-commit/Ezzud/instify)]()\
 [![Github package.json version](https://img.shields.io/github/package-json/v/Ezzud/instify)]()\
