@@ -161,7 +161,7 @@ async function run() {
             console.log(`Compte Spotify: ${spotify_acc || `Inconnu`}\nCompte Instagram: ${insta_acc || `Inconnu`}\nBio: ${bio}`)
             console.log("Bio updated!")
         }
-    }, 5000);
+    }, 15000);
 }
 
 function refresh() {
