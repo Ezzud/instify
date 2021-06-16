@@ -14,7 +14,7 @@ Displays your spotify current track on your instagram biography, editable track 
 <h2>Features</h2>
 <p>
 
-- 1m delay to prevent spam detection
+- 15s delay
 - Spotify Token auto-refresh
 - Prevent fast profile updating so I won't be blocked :D
 - Work on a computer or a vps
