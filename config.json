@@ -1,5 +1,5 @@
 {
-	"bio":"🎶 Ecoute: %track%\n💻 Actualise automatiquement ma bio en fonction de ce que j'écoute sur spotify",
+	"bio":"🎶 Ecoute: %track%\n💻 Instify - Spotify song displayer for Instagram",
 	"track":"%title% ➡ %author%",
 	"nolistening":"Rien pour le moment"
 }
