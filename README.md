@@ -3,6 +3,7 @@
 
 [![Size](https://img.shields.io/github/last-commit/Ezzud/instify)]()\
 [![Github package.json version](https://img.shields.io/github/package-json/v/Ezzud/instify)]()\
+[![Downloads](https://img.shields.io/github/downloads/Ezzud/instify/total)]
 <br>
 
 If you like the code and want to support me:<br>
