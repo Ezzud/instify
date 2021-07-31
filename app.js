@@ -72,6 +72,7 @@ async function spotifyConnect() {
     } else {
         spotify_acc = profile.body.display_name
         spotifyReady = true
+        console.log(`Connected on Spotify as: ${spotify_acc}`)
         return true;
     }
 }
@@ -79,7 +80,7 @@ async function instagramConnect() {
     client.login().then(async () => {
         instaReady = true
         let profile = await client.getProfile()
-        console.log(`Connected as ${profile.username}`)
+        console.log(`Connected on Instagram as ${profile.username}`)
         insta_acc = profile.username
     }).catch(err => {
         console.error(err)
@@ -111,7 +112,7 @@ async function run() {
                 let bio = await client.getProfile()
                 bio = bio.biography
                 console.clear()
-                console.log(`Compte Spotify: ${spotify_acc || `Inconnu`}\nCompte Instagram: ${insta_acc || `Inconnu`}\nBio: ${bio}`)
+                console.log(`\x1b[32m[SPOTIFY]` + `\x1b[0m` + ` ${spotify_acc || `Inconnu`}\n` + `\x1b[35m[INSTAGRAM]` + ` \x1b[0m ${insta_acc || `Inconnu`}` + `\x1b[0m` + `\n` + `\x1b[33m[BIO]` + ` \x1b[0m ${bio}`)
                 return;
             }
             oldtitle = title;
@@ -129,18 +130,17 @@ async function run() {
                 website: profile.external_url,
                 biography: `${format}`
             })
-            let bio = await client.getProfile()
-            bio = bio.biography
+            let bio = format
             console.clear()
-            console.log(`Compte Spotify: ${spotify_acc || `Inconnu`}\nCompte Instagram: ${insta_acc || `Inconnu`}\nBio: ${bio}`)
-            console.log("Bio updated!")
+            console.log(`\x1b[32m[SPOTIFY]` + `\x1b[0m` + ` ${spotify_acc || `Inconnu`}\n` + `\x1b[35m[INSTAGRAM]` + ` \x1b[0m ${insta_acc || `Inconnu`}` + `\x1b[0m` + `\n` + `\x1b[33m[BIO]` + ` \x1b[0m ${bio}`)
+            console.log(`\x1b[32m` + ` \x1b[42mBio Updated!` + `\x1b[0m`);
         } else {
             let title = config.nolistening
             if (title === oldtitle) {
                 let bio = await client.getProfile()
                 bio = bio.biography
                 console.clear()
-                console.log(`Compte Spotify: ${spotify_acc || `Inconnu`}\nCompte Instagram: ${insta_acc || `Inconnu`}\nBio: ${bio}`)
+                console.log(`\x1b[32m[SPOTIFY]` + `\x1b[0m` + ` ${spotify_acc || `Inconnu`}\n` + `\x1b[35m[INSTAGRAM]` + ` \x1b[0m ${insta_acc || `Inconnu`}` + `\x1b[0m` + `\n` + `\x1b[33m[BIO]` + ` \x1b[0m ${bio}`)
                 return;
             }
             oldtitle = title
@@ -155,15 +155,20 @@ async function run() {
                 website: profile.external_url,
                 biography: `${format}`
             })
-            let bio = await client.getProfile()
-            bio = bio.biography
+            let bio = format
             console.clear()
-            console.log(`Compte Spotify: ${spotify_acc || `Inconnu`}\nCompte Instagram: ${insta_acc || `Inconnu`}\nBio: ${bio}`)
-            console.log("Bio updated!")
+            console.log(`\x1b[32m[SPOTIFY]` + `\x1b[0m` + ` ${spotify_acc || `Inconnu`}\n` + `\x1b[35m[INSTAGRAM]` + ` \x1b[0m ${insta_acc || `Inconnu`}` + `\x1b[0m` + `\n` + `\x1b[33m[BIO]` + ` \x1b[0m ${bio}`)
+            console.log(`\x1b[32m` + ` \x1b[42mBio Updated!` + `\x1b[0m`);
         }
     }, 15000);
 }
+/*
 
+
+    Spotify API refresh token
+
+
+*/
 function refresh() {
     spotifyApi.refreshAccessToken().then(function(data) {
         console.log('The access token has been refreshed!');
@@ -180,5 +185,4 @@ function refresh() {
         });
     }, 60000)
 }
-
 run()
