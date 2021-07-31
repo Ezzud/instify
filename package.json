@@ -1,6 +1,6 @@
 {
   "name": "Instify",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Link instagram bio with spotify current track",
   "main": "app.js",
   "private": true,
